@@ -50,8 +50,6 @@ func (dst *Hstore) Set(src interface{}) error {
 			}
 		}
 		*dst = Hstore{Map: m, Status: Present}
-	case map[string]Text:
-		*dst = Hstore{Map: value, Status: Present}
 	default:
 		return fmt.Errorf("cannot convert %v to Hstore", src)
 	}

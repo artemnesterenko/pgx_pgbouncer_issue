@@ -246,7 +246,7 @@ func oneLineCommentState(l *sqlLexer) stateFn {
 		case '\\':
 			_, width = utf8.DecodeRuneInString(l.src[l.pos:])
 			l.pos += width
-		case '\n', '\r':
+		case '\n':
 			return rawState
 		case utf8.RuneError:
 			if l.pos-l.start > 0 {

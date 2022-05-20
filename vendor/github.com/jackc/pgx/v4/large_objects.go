@@ -108,13 +108,13 @@ func (o *LargeObject) Tell() (n int64, err error) {
 	return n, err
 }
 
-// Truncate the large object to size.
+// Trunctes the large object to size.
 func (o *LargeObject) Truncate(size int64) (err error) {
 	_, err = o.tx.Exec(o.ctx, "select lo_truncate64($1, $2)", o.fd, size)
 	return err
 }
 
-// Close the large object descriptor.
+// Close closees the large object descriptor.
 func (o *LargeObject) Close() error {
 	_, err := o.tx.Exec(o.ctx, "select lo_close($1)", o.fd)
 	return err
